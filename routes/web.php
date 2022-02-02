@@ -14,5 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $paste = config("paste");
+
+    $lunghe = [];
+    $corte = [];
+    $cortissime = [];
+
+    foreach($paste as $pasta) {
+        if( $pasta["tipo"] == "lunga" ) {
+            $lunghe[] = $pasta;
+        } else if ( $pasta["tipo"] == "corta" ) {
+            $corte[] = $pasta;
+        } else {
+            $cortissime[] = $pasta;
+        }
+    }
+
+
+    return view('home', ["lunghe" => $lunghe, "corte" => $corte, "cortissime" => $cortissime]);
 });
