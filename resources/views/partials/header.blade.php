@@ -6,13 +6,13 @@
         <nav class="main-nav">
             <ul>
                 <li>
-                    <a href="/">Home</a>
+                    <a href="{{route("homepage")}}">Home</a>
                 </li>
                 <li>
                     <a class="active" href="/prodotti">Prodotti</a>
                 </li>
                 <li>
-                    <a href="/news">News</a>
+                    <a href="{{route("news")}}">News</a>
                 </li>
             </ul>
         </nav>

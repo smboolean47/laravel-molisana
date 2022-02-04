@@ -13,23 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $paste = config("paste");
-
-    $lunghe = [];
-    $corte = [];
-    $cortissime = [];
-
-    foreach($paste as $pasta) {
-        if( $pasta["tipo"] == "lunga" ) {
-            $lunghe[] = $pasta;
-        } else if ( $pasta["tipo"] == "corta" ) {
-            $corte[] = $pasta;
-        } else {
-            $cortissime[] = $pasta;
-        }
-    }
-
-
-    return view('home', ["lunghe" => $lunghe, "corte" => $corte, "cortissime" => $cortissime]);
-});
+Route::get('/', 'PageController@index')->name("homepage");
+Route::get('/news', 'PageController@news')->name("news");
